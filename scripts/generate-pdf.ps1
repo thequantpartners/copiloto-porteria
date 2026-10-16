@@ -1,7 +1,15 @@
 $ErrorActionPreference = "Stop"
+
+$scriptDir = $PSScriptRoot
+$projectRoot = Split-Path -Parent $scriptDir
+
 $edge = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-$htmlPath = "C:\Users\Ken Ryzen\Downloads\copiloto-porteria\copiloto-porteria\REPORTE_DOORMAN_COPILOTO.html"
-$pdfPath = "C:\Users\Ken Ryzen\Downloads\copiloto-porteria\copiloto-porteria\REPORTE_DOORMAN_COPILOTO.pdf"
+if (-not (Test-Path $edge)) {
+    $edge = "C:\Program Files\Microsoft\Edge\Application\msedge.exe"
+}
+
+$htmlPath = Join-Path $projectRoot "REPORTE_DOORMAN_COPILOTO.html"
+$pdfPath = Join-Path $projectRoot "REPORTE_DOORMAN_COPILOTO.pdf"
 
 $htmlUri = "file:///" + ($htmlPath -replace '\\', '/')
 

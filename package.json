@@ -15,7 +15,8 @@
     "eval": "tsx scripts/eval.ts",
     "umbral": "tsx scripts/calibrate-threshold.ts",
     "test": "node --import tsx --test \"test/**/*.test.ts\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "audit:secrets": "tsx scripts/scan-secrets.ts"
   },
   "dependencies": {
     "@google/genai": "^2.25.0",
