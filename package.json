@@ -12,6 +12,7 @@
     "start": "tsx src/server.ts",
     "index": "tsx scripts/build-index.ts",
     "eval:ejemplo": "tsx scripts/eval-ejemplo.ts",
+    "eval": "tsx scripts/eval.ts",
     "test": "node --import tsx --test \"test/**/*.test.ts\"",
     "typecheck": "tsc --noEmit"
   },
