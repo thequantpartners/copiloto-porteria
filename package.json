@@ -13,6 +13,7 @@
     "index": "tsx scripts/build-index.ts",
     "eval:ejemplo": "tsx scripts/eval-ejemplo.ts",
     "eval": "tsx scripts/eval.ts",
+    "umbral": "tsx scripts/calibrate-threshold.ts",
     "test": "node --import tsx --test \"test/**/*.test.ts\"",
     "typecheck": "tsc --noEmit"
   },

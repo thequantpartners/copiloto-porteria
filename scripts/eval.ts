@@ -108,10 +108,15 @@ async function callChatWithRetry(
 
       const isRateLimit =
         res.status === 429 ||
+        res.status === 503 ||
         (res.status === 500 &&
           (String(body?.error).includes('429') ||
+            String(body?.error).includes('503') ||
+            String(body?.error).includes('UNAVAILABLE') ||
             String(body?.error).includes('RESOURCE_EXHAUSTED') ||
+            String(body?.error).includes('high demand') ||
             String(body?.error).includes('quota')));
+
 
       if (isRateLimit) {
         const delay = Math.min(60000, 5000 * Math.pow(2, attempt - 1));
@@ -149,11 +154,24 @@ async function main() {
 
   const dataset: TestCase[] = JSON.parse(readFileSync(datasetPath, 'utf8'));
   const RUNS_PER_CASE = 3;
-  const DELAY_BETWEEN_CALLS_MS = 2500;
+  const DELAY_BETWEEN_CALLS_MS = process.env.EVAL_DELAY_MS
+    ? Number(process.env.EVAL_DELAY_MS)
+    : config.llmProvider === 'gemini'
+      ? 2500
+      : 800;
+
+  const activeModel =
+    config.llmProvider === 'groq'
+      ? config.groq.model
+      : config.llmProvider === 'openrouter'
+        ? config.openrouter.model
+        : config.llmProvider === 'openai'
+          ? config.openai.model
+          : config.gemini.model;
 
   console.log(`========================================================================`);
   console.log(` INICIANDO EVALUACIÓN DEL COPILOTO DE PORTERÍA`);
-  console.log(` Proveedor: ${config.llmProvider} | Modelo: ${config.gemini.model}`);
+  console.log(` Proveedor: ${config.llmProvider} | Modelo: ${activeModel}`);
   console.log(` Casos: ${dataset.length} | Corridas por caso: ${RUNS_PER_CASE} | Total turnos: ${dataset.length * RUNS_PER_CASE}`);
   console.log(` Archivo de salida: ${outputFile}`);
   console.log(`========================================================================\n`);
