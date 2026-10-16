@@ -1,0 +1,5 @@
+# esbuild (lo usa tsx) necesita su script de instalación; los demás no.
+allowBuilds:
+  esbuild: true
+  '@google/genai': false
+  protobufjs: false

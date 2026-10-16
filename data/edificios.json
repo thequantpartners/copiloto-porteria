@@ -1,0 +1,7 @@
+[
+  { "edificio_id": "E-101", "nombre": "Edificio Los Álamos", "ciudad": "Lima", "pais": "PE", "operadores": ["OP-07"] },
+  { "edificio_id": "E-205", "nombre": "Torre Chicó", "ciudad": "Bogotá", "pais": "CO", "operadores": ["OP-07"] },
+  { "edificio_id": "E-150", "nombre": "Residencial Surco", "ciudad": "Lima", "pais": "PE", "operadores": ["OP-12"] },
+  { "edificio_id": "E-310", "nombre": "Edificio Mirador", "ciudad": "Santiago", "pais": "CL", "operadores": ["OP-07"] },
+  { "edificio_id": "E-412", "nombre": "Condominio Las Palmas", "ciudad": "Medellín", "pais": "CO", "operadores": ["OP-12"] }
+]

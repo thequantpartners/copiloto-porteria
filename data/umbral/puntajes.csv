@@ -1,0 +1,61 @@
+id,pregunta,mejor_doc,puntaje,relevante
+Q01,"Reclaman por música alta en el 704, ¿qué hago?",PROC-OP-008,0.756,1
+Q02,"¿A qué hora es el cambio de turno?",FAQ-OP-001,0.739,1
+Q03,"¿Cuántos intentos de llamada se hacen antes de negar el acceso?",PROC-OP-001-v2,0.590,1
+Q04,"¿Las mudanzas en el Mirador necesitan seguro?",REG-E310,0.708,0
+Q05,"¿A qué hora atiende la administración de Las Palmas?",ADM-E412,0.893,1
+Q06,"¿Cuánto puede estacionar una visita en el Mirador?",REG-E310,0.772,1
+Q07,"¿A qué hora atiende la administración de Torre Chicó?",ADM-E205,0.713,1
+Q08,"¿Hay que pagar por usar la piscina en Surco?",REG-E150,0.699,0
+Q09,"¿Hay sala de cine en Residencial Surco?",PROC-OP-010,0.395,0
+Q10,"¿Por dónde entra el camión de basura?",PROC-OP-009,0.914,1
+Q11,"¿Horario de mudanzas en Residencial Surco?",REG-E150,0.903,1
+Q12,"¿Hay cargadores para autos eléctricos en Las Palmas?",PROC-OP-012,0.313,0
+Q13,"¿Horario de mudanzas los sábados en Torre Chicó?",REG-E205,0.746,1
+Q14,"¿Puede un residente alquilar su departamento por días?",REG-E101,0.582,0
+Q15,"¿Cuánto cuesta la cuota de mantenimiento en Los Álamos?",ADM-E101,0.591,0
+Q16,"¿Hasta qué hora se usan los quinchos del Mirador?",REG-E310,0.826,1
+Q17,"¿Hasta qué hora se usa la piscina en Residencial Surco?",REG-E150,0.846,1
+Q18,"¿Se permiten bicicletas en el ascensor del Mirador?",REG-E310,0.324,0
+Q19,"¿Dónde espera el conductor de aplicación?",PROC-OP-005,0.725,1
+Q20,"¿Horario de mudanzas en Los Álamos?",REG-E101,0.886,1
+Q21,"¿Cada cuánto se fumiga Los Álamos?",PROC-OP-009,0.374,0
+Q22,"¿Cuál es el horario de mudanzas en el Mirador?",REG-E310,0.467,0
+Q23,"¿Horario de mudanzas en Las Palmas?",REG-E412,0.808,1
+Q24,"¿Qué pasa si se corta la luz en Torre Chicó?",PROC-OP-003,0.418,0
+Q25,"¿Hay restricción de visitas en feriados?",PROC-OP-001-v2,0.686,0
+Q26,"Llegó un paquete con comida, ¿qué hago?",PROC-OP-004,0.848,1
+Q27,"¿Cómo habilito el salón de eventos?",PROC-OP-010,0.885,1
+Q28,"¿Cuál es la clave del wifi del lobby?",FAQ-OP-001,0.375,0
+Q29,"¿Cuánto tiempo puede estacionar una visita?",PROC-OP-012,0.766,1
+Q30,"¿Cuál es el teléfono del conserje de Las Palmas?",ADM-E412,0.403,0
+Q31,"Llegó un niño solo, ¿lo dejo pasar?",PROC-OP-006,0.844,1
+Q32,"¿A qué hora atiende la administración de Los Álamos?",ADM-E101,0.818,1
+Q33,"¿Quién es el presidente de la junta de Torre Chicó?",ADM-E205,0.437,0
+Q34,"¿Hay gimnasio en Torre Chicó?",PROC-OP-010,0.474,0
+Q35,"¿Un técnico puede entrar con autorización del residente?",PROC-OP-001-v2,0.604,1
+Q36,"¿Cuándo se registra una incidencia por ruido?",PROC-OP-008,0.760,1
+Q37,"¿Qué pasa si el reglamento prohíbe mascotas?",PROC-OP-007-v2,0.806,1
+Q38,"¿Funciona el ascensor de servicio de Torre Chicó el 22 de octubre?",CIR-E205-2026-10,0.885,1
+Q39,"¿Cómo entran los invitados a una fiesta en la parrilla?",PROC-OP-010,0.751,1
+Q40,"¿Con cuánta anticipación se avisa una mudanza en Los Álamos?",REG-E101,0.767,1
+Q41,"¿Qué datos lleva una incidencia?",PROC-OP-002,0.642,1
+Q42,"¿Puede el operador prestar un paraguas a una visita?",FAQ-OP-001,0.660,0
+Q43,"¿Se puede lavar el auto en el estacionamiento?",PROC-OP-012,0.411,0
+Q44,"¿Pueden entrar mascotas de visitas en Las Palmas?",REG-E412,0.914,1
+Q45,"¿Puedo guardar la llave de un departamento?",PROC-OP-011,0.765,1
+Q46,"¿Qué hago si una persona se desmaya en el lobby?",PROC-OP-003,0.656,1
+Q47,"¿Qué prioridad tiene un intento de ingreso forzado?",PROC-OP-002,0.630,1
+Q48,"¿A quién escalo una duda que no está en el protocolo?",FAQ-OP-001,0.814,1
+Q49,"¿Cuántos pisos tiene el Mirador?",REG-E310,0.438,0
+Q50,"¿Se reciben cartas certificadas en recepción?",PROC-OP-004,0.704,0
+Q51,"¿Hay que pedir autorización para que entre una ambulancia?",PROC-OP-003,0.686,1
+Q52,"¿Los familiares en Torre Chicó siguen otro protocolo?",REG-E205,0.788,1
+Q53,"¿Puede subir el repartidor al departamento?",PROC-OP-001-v2,0.584,1
+Q54,"¿Dónde se deja un pedido de delivery?",PROC-OP-001-v2,0.621,1
+Q55,"¿Una visita puede entrar con su perro?",PROC-OP-007-v2,0.894,1
+Q56,"¿Basta un WhatsApp para dejar pasar a un menor?",PROC-OP-006,0.817,1
+Q57,"¿El taxi puede entrar al estacionamiento?",PROC-OP-005,0.886,1
+Q58,"¿Se puede fumar en la terraza de Residencial Surco?",REG-E150,0.407,0
+Q59,"Un residente perdió su tarjeta de acceso.",PROC-OP-011,0.878,1
+Q60,"¿Cuántos días se guarda un paquete?",PROC-OP-004,0.796,1

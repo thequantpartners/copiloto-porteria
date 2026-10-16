@@ -1,0 +1,10 @@
+edificio_id,unidad,residente,visitante,tipo,autorizado_por,valido_desde,valido_hasta
+E-101,502,Carla Ríos,Jorge Ríos,familiar,residente,2026-10-01,2026-12-31
+E-101,502,Carla Ríos,Limpiezas Brillo SAC,proveedor,residente,2026-10-16,2026-10-16
+E-101,301,Martín Salas,Lucía Paredes,visita,residente,2026-10-10,2026-10-12
+E-205,1203,Andrés Gómez,Valentina Gómez,familiar,residente,2026-09-01,2026-12-31
+E-150,804,Rosa Medina,Pablo Medina,familiar,residente,2026-10-01,2026-12-31
+E-205,0702,Lucía Herrera,Técnicos Andinos SAS,tecnico,administracion,2026-10-01,2026-12-31
+E-101,1101,Pedro Vargas,Ana Torres,visita,residente,2026-10-16,2026-10-16
+E-310,402,Camila Soto,Diego Fuentes,visita,residente,2026-10-01,2026-10-31
+E-412,305,Mario Restrepo,Laura Restrepo,familiar,residente,2026-10-01,2026-12-31
