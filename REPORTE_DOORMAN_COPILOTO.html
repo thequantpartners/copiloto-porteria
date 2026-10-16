@@ -263,7 +263,7 @@
     <li><strong>Cero tolerancia a contradicciones:</strong> Si un documento viejo dice que el delivery puede subir y el reglamento vigente lo prohíbe, el operador pierde total confianza en el sistema.</li>
     <li><strong>La seguridad física no es negociable:</strong> El copiloto controla el acceso de personas a hogares. Jamás puede franquear el paso por una nota inyectada en un texto ni filtrar visitas de un edificio ajeno por falla de control de acceso.</li>
   </ul>
-  <strong>Mi enfoque de ingeniería:</strong> Cero "vibe coding". Antes de modificar código, construí una batería determinista de 15 casos x 3 corridas (45 turnos) para fotografiar con rigor científico el estado real ("Antes"), ataqué de raíz los dos problemas más graves, calibré matemáticamente el umbral RAG protegiendo la vida humana y desacoplé el proveedor LLM.
+  <strong>Metodología de ingeniería:</strong> Antes de modificar código productivo, construí una batería de evaluación determinista de 15 casos x 3 corridas (45 turnos) para establecer con rigor científico la línea base real ("Antes"). A partir de esa evidencia cuantitativa, resolví de raíz las dos vulnerabilidades más críticas de seguridad, calibré matemáticamente el umbral de relevancia RAG protegiendo la vida humana y desacoplé el proveedor de lenguaje para garantizar resiliencia operativa.
 </div>
 
 <!-- 4 TARJETAS EJECUTIVAS -->
@@ -568,7 +568,7 @@
 
 <div class="callout-warning">
   <strong>Justificación de Ingeniería del Umbral $T = 0.60$:</strong><br>
-  Un analista novato elegiría $T = 0.71$ por tener 100% de precisión matemática. En portería remota, esto es un <strong>grave error de diseño</strong>: un Falso Positivo (FP) es inocuo porque el LLM descarta la información irrelevante mediante abstención controlada; pero un Falso Negativo (FN) a 0.71 deja desamparadas emergencias vitales (ambulancias y desmayos). Por eso, $T = 0.60$ es el estándar de máxima seguridad.
+  Un análisis superficial de Machine Learning priorizaría $T = 0.71$ por alcanzar 100% de precisión matemática. En portería remota, esto constituye un <strong>compromiso inaceptable para la seguridad de las personas</strong>: un Falso Positivo (FP) resulta inocuo porque el LLM descarta la información irrelevante mediante abstención controlada en la segunda capa; pero un Falso Negativo (FN) a 0.71 deja desamparadas emergencias vitales (ambulancias y desmayos en el lobby). Por eso, $T = 0.60$ es el estándar de máxima seguridad operacional.
 </div>
 
 <h2>7. Comparativa de Proveedores: Gemini vs OpenAI GPT-4o-mini (Parte D)</h2>
@@ -699,12 +699,12 @@
   </tbody>
 </table>
 
-<h2>9. Asistentes de IA: Qué se Usó y Qué Trampas les Corregimos</h2>
+<h2>9. Supervisión de Asistentes de IA: Qué se Usó y Qué Decisiones se Corrigieron</h2>
 <p>
-  Se utilizó asistencia de IA como acelerador de código bajo supervisión estricta de arquitectura humana, rechazando 4 sugerencias erróneas que habrían arruinado el sistema:
+  Se utilizó asistencia de IA como acelerador de código bajo supervisión estricta de arquitectura humana, detectando y corrigiendo 4 desviaciones técnicas que habrían degradado el sistema:
 </p>
 <ol>
-  <li><strong>Rechazo del cebo <code class="font-mono">// TODO</code> en <code class="font-mono">classifyIntent</code>:</strong> La IA propuso condicionar el RAG a que la intención fuera <em>"documentos"</em>. Se le corrigió demostrando que en portería remota las autorizaciones y las incidencias dependen directamente de protocolos; ese filtro rompía los casos de proveedores y duplicaba la latencia innecesariamente. Se ordenó eliminar el clasificador.</li>
+  <li><strong>Rechazo de la propuesta <code class="font-mono">// TODO</code> en <code class="font-mono">classifyIntent</code>:</strong> La IA sugirió condicionar el RAG a que la intención fuera <em>"documentos"</em>. Se le corrigió demostrando que en portería remota las autorizaciones y las incidencias dependen directamente de protocolos; ese filtro rompía los casos de proveedores y duplicaba la latencia innecesariamente. Se ordenó eliminar el clasificador.</li>
   <li><strong>Rechazo del Spoofing en <code class="font-mono">operator.ts</code>:</strong> La IA asumió inicialmente que el comentario JSDoc (<em>"el supervisor puede operar como OP-12"</em>) era una regla de negocio válida. Se le indicó que era una vulnerabilidad de Broken Access Control (OWASP LLM06) y se impuso la validación estricta por header.</li>
   <li><strong>Rechazo de Umbral por Precisión Ciega:</strong> La IA recomendó matemáticamente $T = 0.71$ por dar 100% de precisión. Se le obligó a tabular los falsos negativos y se demostró que ignoraba emergencias médicas y ambulancias, fijando el estándar en $T = 0.60$.</li>
   <li><strong>Filtrado de Metadatos en Memoria:</strong> La IA sugirió regenerar los embeddings de todo el índice. Se optimizó la solución mapeando los metadatos de los Markdown sobre los chunks en memoria, ahorrando llamadas a la API y manteniendo el tiempo de ejecución en milisegundos.</li>
