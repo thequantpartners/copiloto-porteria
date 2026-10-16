@@ -1,4 +1,5 @@
-import { loadAuthorizations } from '../data.ts';
+import { config } from '../config.ts';
+import { loadAuthorizations, loadBuildings } from '../data.ts';
 import type { ToolSpec } from '../llm/types.ts';
 
 export const consultarAutorizacionesSpec: ToolSpec = {
@@ -28,8 +29,22 @@ const normalize = (s: string) =>
 
 const sameUnit = (a: string, b: string) => a.replace(/^0+/, '') === b.replace(/^0+/, '');
 
-export function consultarAutorizaciones(args: { edificio_id: string; unidad: string; visitante?: string }) {
-  const today = new Date().toISOString().slice(0, 10);
+export function consultarAutorizaciones(
+  args: { edificio_id: string; unidad: string; visitante?: string },
+  operatorId?: string,
+) {
+  if (operatorId) {
+    const buildings = loadBuildings();
+    const assigned = buildings.filter((b) => b.operadores.includes(operatorId)).map((b) => b.edificio_id);
+    if (!assigned.includes(args.edificio_id)) {
+      return {
+        ok: false,
+        error: 'Acceso denegado: el edificio ' + args.edificio_id + ' no está asignado al operador ' + operatorId,
+      };
+    }
+  }
+
+  const today = config.referenceDate;
 
   const rows = loadAuthorizations().filter(
     (a) =>
@@ -39,6 +54,7 @@ export function consultarAutorizaciones(args: { edificio_id: string; unidad: str
   );
 
   return {
+    ok: true,
     edificio_id: args.edificio_id,
     unidad: args.unidad,
     autorizaciones: rows.map((a) => ({
@@ -52,3 +68,4 @@ export function consultarAutorizaciones(args: { edificio_id: string; unidad: str
     })),
   };
 }
+

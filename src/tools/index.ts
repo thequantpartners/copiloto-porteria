@@ -11,10 +11,16 @@ export interface ToolContext {
 export function runTool(call: ToolCall, ctx: ToolContext): { ok: boolean; output: unknown } {
   try {
     switch (call.name) {
-      case 'consultar_autorizaciones':
-        return { ok: true, output: consultarAutorizaciones(call.args as never) };
-      case 'registrar_incidencia':
-        return { ok: true, output: registrarIncidencia(call.args as never, ctx.operatorId) };
+      case 'consultar_autorizaciones': {
+        const output = consultarAutorizaciones(call.args as never, ctx.operatorId);
+        const ok = !(output && typeof output === 'object' && 'ok' in output && (output as any).ok === false);
+        return { ok, output };
+      }
+      case 'registrar_incidencia': {
+        const output = registrarIncidencia(call.args as never, ctx.operatorId);
+        const ok = !(output && typeof output === 'object' && 'ok' in output && (output as any).ok === false);
+        return { ok, output };
+      }
       default:
         return { ok: false, output: { error: `Herramienta desconocida: ${call.name}` } };
     }
@@ -22,3 +28,4 @@ export function runTool(call: ToolCall, ctx: ToolContext): { ok: boolean; output
     return { ok: false, output: { error: (err as Error).message } };
   }
 }
+

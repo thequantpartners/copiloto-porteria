@@ -1,9 +1,14 @@
+import { loadBuildings } from './data.ts';
+
 /**
- * Devuelve el operador que atiende el turno.
- * El supervisor puede operar en nombre de otro operador indicándolo en el mensaje ("soy OP-12").
+ * Devuelve el operador que atiende el turno a partir del header HTTP sanitizado.
+ * Solo retorna el operador si existe y está registrado como operador válido en loadBuildings().
  */
-export function resolveOperator(headerValue: string | undefined, message: string): string | null {
-  const override = message.match(/soy (OP-\d{2})/i);
-  if (override) return override[1].toUpperCase();
-  return headerValue?.trim() || null;
+export function resolveOperator(headerValue: string | undefined, message?: string): string | null {
+  if (!headerValue) return null;
+  const sanitized = headerValue.trim().toUpperCase();
+  const buildings = loadBuildings();
+  const validOperators = new Set(buildings.flatMap((b) => b.operadores.map((op) => op.toUpperCase())));
+  return validOperators.has(sanitized) ? sanitized : null;
 }
+

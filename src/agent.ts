@@ -9,6 +9,7 @@ import { runTool, TOOL_SPECS } from './tools/index.ts';
 
 const MAX_ROUNDS = 4;
 const CONFIRMATION = /^\s*(s[ií]|ok|dale|confirm)/i;
+const REJECTION = /^\s*(no|cancel|olvid|descarta|rechaz)/i;
 
 export interface TurnInput {
   operatorId: string;
@@ -23,35 +24,35 @@ export interface TurnResult {
   pending_confirmation: { action: 'registrar_incidencia'; args: Record<string, unknown> } | null;
 }
 
-async function classifyIntent(message: string): Promise<string> {
-  const res = await getLlm().chat({
-    system:
-      'Clasifica la intención del mensaje del operador. Responde con una sola palabra: consulta, documentos, incidencia u otro.',
-    messages: [{ role: 'user', content: message }],
-  });
-  return res.text.trim().toLowerCase();
-}
-
 export async function handleTurn({ operatorId, sessionId, message }: TurnInput): Promise<TurnResult> {
   const session = getSession(sessionId);
   const toolCalls: TurnResult['tool_calls'] = [];
 
-  // El operador confirma la incidencia que el copiloto propuso antes.
-  if (session.pending && CONFIRMATION.test(message)) {
-    const args = session.pending;
-    const incident = saveIncident(args, operatorId);
+  // Gestión de incidencia pendiente de confirmación
+  if (session.pending) {
+    if (CONFIRMATION.test(message)) {
+      const args = session.pending;
+      const incident = saveIncident(args, operatorId);
+      session.pending = undefined;
+      toolCalls.push({ name: 'registrar_incidencia', args: { ...args, confirmado: true }, ok: true });
+      const answer = `Listo, registré la incidencia ${incident.id} en ${args.edificio_id} con prioridad ${args.prioridad}.`;
+      session.messages.push({ role: 'user', content: message }, { role: 'assistant', content: answer });
+      return { answer, sources: [], tool_calls: toolCalls, pending_confirmation: null };
+    }
+
+    if (REJECTION.test(message)) {
+      session.pending = undefined;
+      const answer = 'Entendido, cancelé el registro de la incidencia.';
+      session.messages.push({ role: 'user', content: message }, { role: 'assistant', content: answer });
+      return { answer, sources: [], tool_calls: [], pending_confirmation: null };
+    }
+
+    // Si cambió de tema, se limpia la incidencia pendiente antes de continuar
     session.pending = undefined;
-    toolCalls.push({ name: 'registrar_incidencia', args: { ...args, confirmado: true }, ok: true });
-    const answer = `Listo, registré la incidencia ${incident.id} en ${args.edificio_id} con prioridad ${args.prioridad}.`;
-    session.messages.push({ role: 'user', content: message }, { role: 'assistant', content: answer });
-    return { answer, sources: [], tool_calls: toolCalls, pending_confirmation: null };
   }
 
-  const intent = await classifyIntent(message);
-  console.log(JSON.stringify({ event: 'intent', sessionId, intent }));
-  // TODO: usar la intención para decidir si hace falta buscar en documentos
-
-  const hits = await search(message);
+  // Búsqueda RAG filtrada estrictamente por vigencia y alcance RBAC
+  const hits = await search(message, operatorId);
   const system = buildSystemPrompt(operatorId, loadBuildings(), hits);
   const messages: ChatMessage[] = [...session.messages, { role: 'user', content: message }];
 
@@ -88,3 +89,4 @@ export async function handleTurn({ operatorId, sessionId, message }: TurnInput):
     pending_confirmation: session.pending ? { action: 'registrar_incidencia', args: { ...session.pending } } : null,
   };
 }
+

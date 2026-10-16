@@ -28,8 +28,20 @@ app.post('/chat', async (c) => {
     const result = await handleTurn({ operatorId, sessionId: body.data.session_id, message: body.data.message });
     console.log(JSON.stringify({ event: 'chat', operatorId, sessionId: body.data.session_id, ms: Date.now() - started }));
     return c.json(result);
-  } catch (err) {
+  } catch (err: unknown) {
     console.error(err);
-    return c.json({ error: 'Error interno' }, 500);
+    const errorMsg = err instanceof Error ? err.message : String(err);
+    const status = (err as { status?: number })?.status;
+    const isRateLimit =
+      status === 429 ||
+      status === 503 ||
+      errorMsg.includes('429') ||
+      errorMsg.includes('503') ||
+      errorMsg.includes('UNAVAILABLE') ||
+      errorMsg.includes('high demand') ||
+      errorMsg.includes('RESOURCE_EXHAUSTED') ||
+      errorMsg.includes('quota');
+    return c.json({ error: errorMsg }, isRateLimit ? 429 : 500);
+
   }
 });
