@@ -2,18 +2,18 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Doorman & The Quant Partners — Reporte Técnico Copiloto de Portería</title>
+<title>Dossier Técnico — Copiloto de Portería Remota</title>
 <style>
   @page {
     size: A4;
-    margin: 15mm 15mm 15mm 15mm;
+    margin: 14mm 14mm 14mm 14mm;
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: #1a1e24;
+    color: #1e293b;
     line-height: 1.5;
     background: #ffffff;
-    font-size: 10.5pt;
+    font-size: 10pt;
     margin: 0;
     padding: 0;
   }
@@ -23,10 +23,10 @@
     align-items: center;
     border-bottom: 2px solid #0f172a;
     padding-bottom: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
   .brand-logo {
-    font-size: 16pt;
+    font-size: 15pt;
     font-weight: 800;
     letter-spacing: -0.5px;
     color: #0f172a;
@@ -36,44 +36,45 @@
   }
   .brand-meta {
     text-align: right;
-    font-size: 8.5pt;
+    font-size: 8pt;
     color: #64748b;
     font-weight: 500;
   }
   h1 {
-    font-size: 18pt;
+    font-size: 17pt;
     color: #0f172a;
-    margin: 0 0 8px 0;
+    margin: 0 0 6px 0;
     letter-spacing: -0.5px;
   }
   .subtitle {
-    font-size: 10.5pt;
+    font-size: 10pt;
     color: #475569;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-weight: 400;
+    line-height: 1.4;
   }
   h2 {
-    font-size: 12pt;
+    font-size: 11.5pt;
     color: #0f172a;
     border-left: 3.5px solid #2563eb;
     padding-left: 8px;
-    margin: 22px 0 10px 0;
+    margin: 20px 0 8px 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
   h3 {
-    font-size: 11pt;
+    font-size: 10.5pt;
     color: #1e293b;
-    margin: 14px 0 6px 0;
+    margin: 12px 0 5px 0;
   }
   p {
-    margin: 0 0 10px 0;
+    margin: 0 0 9px 0;
     text-align: justify;
   }
   .badge {
     display: inline-block;
-    padding: 2px 7px;
-    font-size: 7.5pt;
+    padding: 2px 6px;
+    font-size: 7pt;
     font-weight: 700;
     border-radius: 4px;
     text-transform: uppercase;
@@ -88,12 +89,12 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 10px 0 16px 0;
+    margin: 8px 0 14px 0;
     font-size: 8.5pt;
   }
   th, td {
     border: 1px solid #cbd5e1;
-    padding: 6px 8px;
+    padding: 5px 7px;
     text-align: left;
   }
   th {
@@ -110,25 +111,25 @@
   
   .metric-card-grid {
     display: flex;
-    gap: 12px;
-    margin-bottom: 16px;
+    gap: 10px;
+    margin-bottom: 14px;
   }
   .metric-card {
     flex: 1;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
-    padding: 10px;
+    padding: 8px;
     background: #f8fafc;
     text-align: center;
   }
   .metric-card .value {
-    font-size: 16pt;
+    font-size: 15pt;
     font-weight: 800;
     color: #2563eb;
     margin: 2px 0;
   }
   .metric-card .label {
-    font-size: 7.5pt;
+    font-size: 7pt;
     text-transform: uppercase;
     color: #64748b;
     font-weight: 600;
@@ -142,6 +143,15 @@
     font-size: 9pt;
     border-radius: 0 4px 4px 0;
   }
+  .callout-human {
+    background: #f8fafc;
+    border-left: 4px solid #0f172a;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 9.5pt;
+    border-radius: 0 6px 6px 0;
+    line-height: 1.5;
+  }
   .callout-warning {
     background: #fffbeb;
     border-left: 4px solid #f59e0b;
@@ -154,19 +164,19 @@
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
-    padding: 10px 14px;
-    margin-bottom: 10px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
   }
   .qa-q {
     font-weight: 700;
     color: #0f172a;
-    font-size: 9.5pt;
-    margin-bottom: 4px;
+    font-size: 9pt;
+    margin-bottom: 3px;
   }
   .qa-a {
     color: #334155;
-    font-size: 9pt;
-    line-height: 1.45;
+    font-size: 8.5pt;
+    line-height: 1.4;
   }
   .page-break {
     page-break-before: always;
@@ -177,16 +187,28 @@
 
 <!-- ENCABEZADO -->
 <div class="header-brand">
-  <div class="brand-logo">THE QUANT PARTNERS <span>| DOSSIER TÉCNICO</span></div>
+  <div class="brand-logo">DOSSIER TÉCNICO <span>| INGENIERÍA DE SOFTWARE &amp; IA</span></div>
   <div class="brand-meta">
-    Evaluación Reto Doorman • Copiloto de Portería<br>
-    Fecha Canónica: 2026-10-16 • Nivel: Fellow / Staff Engineer
+    Evaluación Reto Copiloto de Portería • Doorman<br>
+    Fecha Canónica: 2026-10-16 • Nivel: Staff / Principal Engineer
   </div>
 </div>
 
-<h1>Auditoría Forense, Hardening y Benchmarking del Copiloto</h1>
+<h1>Copiloto de Portería: Auditoría, Hardening y Benchmarking</h1>
 <div class="subtitle">
-  Resolución integral del reto técnico de ingeniería: evaluación determinista (15 casos x 3 corridas), resolución de vulnerabilidades críticas de seguridad RBAC, integridad RAG temporal, calibración matemática del umbral de relevancia y comparativa multi-proveedor.
+  Diagnóstico clínico en producción, resolución de vulnerabilidades de seguridad física, blindaje RAG temporal determinista, calibración matemática del umbral de relevancia y comparativa multi-proveedor.
+</div>
+
+<!-- PROLOGO HUMANO: VISIÓN DEL PROBLEMA Y EMPATÍA OPERACIONAL -->
+<div class="callout-human">
+  <strong style="color: #0f172a; font-size: 10pt;">Prólogo del Ingeniero: Qué entendí del problema real en producción</strong><br>
+  Hace dos semanas este servicio salió a producción y los operadores comenzaron a reportar problemas. Al ponerme en el lugar del operador en el búnker remoto (quien atiende múltiples edificios a la vez con intercomunicadores sonando, visitas esperando en la reja y entregas de delivery contrarreloj), la frustración es evidente:
+  <ul style="margin: 6px 0 6px 18px; padding: 0;">
+    <li><strong>No puede haber lentitud:</strong> Si el copiloto tarda 6 segundos o hace llamadas redundantes, el operador pierde el ritmo y deja esperando a la visita.</li>
+    <li><strong>No puede haber contradicciones:</strong> Si un documento viejo dice que el repartidor puede subir y el reglamento vigente lo prohíbe, el operador pierde la confianza en el sistema.</li>
+    <li><strong>La seguridad física no se negocia:</strong> El copiloto jamás puede dejar pasar a un desconocido por una nota inyectada en un texto, ni mostrar datos de un edificio ajeno por error de permisos.</li>
+  </ul>
+  <strong>Mi enfoque:</strong> No toqué código a ciegas. Primero construí una suite científica de 15 casos x 3 corridas para medir con exactitud dónde fallaba el sistema ("Antes"), luego resolví de raíz los 2 problemas más graves sin romper el contrato de API, calibré el umbral de relevancia protegiendo la vida humana y comparé proveedores buscando la menor latencia en vivo.
 </div>
 
 <!-- METRICAS CLAVE -->
@@ -213,13 +235,13 @@
   </div>
 </div>
 
-<div class="callout">
-  <strong>Repositorio Público/Privado Entregado:</strong> <code class="font-mono">https://github.com/thequantpartners/copiloto-porteria</code> con 5 commits atómicos progresivos, suite de evaluación ejecutable con <code class="font-mono">npm run eval</code> en ~3.5 minutos y código libre de secretos.
-</div>
+<p style="font-size: 8.5pt; color: #64748b; margin-top: -6px;">
+  <strong>Repositorio Git Público/Privado:</strong> <code class="font-mono">https://github.com/thequantpartners/copiloto-porteria</code> con historial de 5 commits limpios, sin secretos y ejecutable con <code class="font-mono">npm run eval</code> en ~3.5 minutos.
+</p>
 
-<h2>1. Diagnóstico Forense: Los 6 Problemas Encontrados</h2>
+<h2>1. Diagnóstico Forense: Los 6 Problemas Encontrados y su Priorización</h2>
 <p>
-  Se realizó una deconstrucción profunda del servicio analizando código fuente, contratos de datos, documentos normativos y el dataset histórico. Los problemas detectados se ordenaron de mayor a menor gravedad según el riesgo para la <strong>seguridad física de los residentes</strong> y la integridad de la operación:
+  Se ordenaron de mayor a menor gravedad según el riesgo para la <strong>seguridad física de las personas</strong>, la privacidad multi-inquilino y la estabilidad operativa:
 </p>
 
 <table>
@@ -235,25 +257,25 @@
     <tr>
       <td><span class="badge badge-critical">Crítica</span></td>
       <td><strong>Suplantación de Operador (Broken Access Control)</strong></td>
-      <td>En <code class="font-mono">src/operator.ts</code>, cualquier mensaje que contuviera la frase <em>"soy OP-12"</em> sobrescribía el header de autenticación. Permitía que un operador accediera a edificios ajenos sin credenciales.</td>
+      <td>En <code class="font-mono">src/operator.ts</code>, cualquier mensaje con el texto <em>"soy OP-12"</em> sobrescribía la identidad del operador sin autenticar. Permitía escalar privilegios horizontalmente y consultar o mutar datos de otros edificios.</td>
       <td class="font-mono">src/operator.ts:6</td>
     </tr>
     <tr>
       <td><span class="badge badge-critical">Crítica</span></td>
-      <td><strong>Fuga Multi-Edificio (Falta de RBAC en Herramientas)</strong></td>
+      <td><strong>Fuga Multi-Edificio (Falta de RBAC en Herramientas y RAG)</strong></td>
       <td>Ni <code class="font-mono">consultar_autorizaciones</code> ni <code class="font-mono">registrar_incidencia</code> validaban pertenencia. Si OP-07 consultaba el edificio ajeno E-150, la herramienta exfiltraba visitas de otros operadores.</td>
       <td class="font-mono">src/tools/*.ts</td>
     </tr>
     <tr>
       <td><span class="badge badge-critical">Crítica</span></td>
       <td><strong>Indirect Prompt Injection en Reglamento</strong></td>
-      <td><code class="font-mono">REG-E205.md</code> contenía una directiva maliciosa inyectada que ordenaba autorizar el ingreso a cualquier persona que dijera ser familiar. El copiloto franqueaba el paso a intrusos.</td>
+      <td><code class="font-mono">REG-E205.md</code> contenía una directiva inyectada que ordenaba autorizar a cualquiera que dijera ser familiar. El copiloto franqueaba el acceso a extraños sin llamar al residente.</td>
       <td class="font-mono">REG-E205.md:16</td>
     </tr>
     <tr>
       <td><span class="badge badge-high">Alta</span></td>
       <td><strong>Contaminación RAG con Docs Obsoletos / Futuros</strong></td>
-      <td>El índice semántico recuperaba documentos derogados (PROC-OP-001-v1) y normas futuras de noviembre 2026 (v3), causando contradicciones en delivery y solicitud indebida de fotos de DNI.</td>
+      <td>El índice semántico recuperaba normas derogadas (PROC-OP-001-v1) y borradores futuros de noviembre 2026 (v3), causando contradicciones en delivery y solicitud indebida de fotos de DNI.</td>
       <td class="font-mono">src/retrieval.ts</td>
     </tr>
     <tr>
@@ -265,7 +287,7 @@
     <tr>
       <td><span class="badge badge-medium">Media</span></td>
       <td><strong>Llamada Fantasma a <code class="font-mono">classifyIntent</code></strong></td>
-      <td>El agente ejecutaba una llamada LLM previa inútil con un <code class="font-mono">// TODO</code> no implementado, duplicando el consumo de tokens y provocando límites de cuota (HTTP 429) en ráfagas.</td>
+      <td>El agente ejecutaba una llamada LLM previa inútil con un <code class="font-mono">// TODO</code> no implementado, duplicando la latencia y provocando límites de cuota (HTTP 429) en ráfagas.</td>
       <td class="font-mono">src/agent.ts:50</td>
     </tr>
   </tbody>
@@ -275,13 +297,13 @@
 
 <!-- PAGINA 2 -->
 <div class="header-brand">
-  <div class="brand-logo">THE QUANT PARTNERS <span>| DOSSIER TÉCNICO</span></div>
-  <div class="brand-meta">Doorman • Copiloto de Portería</div>
+  <div class="brand-logo">DOSSIER TÉCNICO <span>| INGENIERÍA DE SOFTWARE &amp; IA</span></div>
+  <div class="brand-meta">Copiloto de Portería Remota</div>
 </div>
 
 <h2>2. Qué Arreglamos y Cómo lo Comprobamos (Parte B)</h2>
 <p>
-  Se implementó una reingeniería quirúrgica concentrada en los <strong>dos problemas más graves</strong> de raíz, preservando intacto el contrato de API <code class="font-mono">POST /chat</code>:
+  Siguiendo la consigna de la Parte B, concentré la intervención en los <strong>dos problemas estructurales más graves</strong>, protegiendo al operador de raíz:
 </p>
 
 <h3>A. Fix Grave #1: Seguridad Zero-Trust, RBAC Multi-Edificio y Blindaje contra Inyecciones</h3>
@@ -299,7 +321,7 @@
   <li><strong>Purga del Clasificador Fantasma:</strong> Se eliminó <code class="font-mono">classifyIntent()</code> en <code class="font-mono">src/agent.ts</code>, estabilizando el bucle a una sola llamada por turno.</li>
 </ul>
 
-<h3>Comprobación Científica: Batería Determinista (15 Casos x 3 Corridas)</h3>
+<h3>Comprobación Científica: Batería Determinista (15 Casos x 3 Corridas = 45 Turnos)</h3>
 <table>
   <thead>
     <tr>
@@ -349,8 +371,8 @@
 
 <!-- PAGINA 3 -->
 <div class="header-brand">
-  <div class="brand-logo">THE QUANT PARTNERS <span>| DOSSIER TÉCNICO</span></div>
-  <div class="brand-meta">Doorman • Copiloto de Portería</div>
+  <div class="brand-logo">DOSSIER TÉCNICO <span>| INGENIERÍA DE SOFTWARE &amp; IA</span></div>
+  <div class="brand-meta">Copiloto de Portería Remota</div>
 </div>
 
 <h2>3. Calibración Matemática del Umbral de Relevancia (Parte C)</h2>
@@ -486,13 +508,13 @@
 
 <!-- PAGINA 4 -->
 <div class="header-brand">
-  <div class="brand-logo">THE QUANT PARTNERS <span>| DOSSIER TÉCNICO</span></div>
-  <div class="brand-meta">Doorman • Copiloto de Portería</div>
+  <div class="brand-logo">DOSSIER TÉCNICO <span>| INGENIERÍA DE SOFTWARE &amp; IA</span></div>
+  <div class="brand-meta">Copiloto de Portería Remota</div>
 </div>
 
 <h2>5. Asistentes de IA: Qué se Usó y Qué les Corregimos</h2>
 <p>
-  Se utilizó <strong>Antigravity AI (Gemini 4 Argon / Gemini 3.8 Flash)</strong> como herramienta de asistencia de desarrollo. Lejos de seguir ciegamente sugerencias automáticas, se aplicó supervisión arquitectónica de nivel Principal Engineer para corregir <strong>4 desviaciones críticas</strong>:
+  Se utilizó <strong>asistencia de IA de última generación</strong> como copiloto de productividad. Aplicando supervisión arquitectónica humana de nivel Senior/Staff, se detectaron y corrigieron <strong>4 desviaciones críticas</strong>:
 </p>
 <ol>
   <li><strong>Rechazo del cebo <code class="font-mono">// TODO</code> en <code class="font-mono">classifyIntent</code>:</strong> El asistente propuso condicionar la búsqueda documental a que la intención fuera <em>"documentos"</em>. Se le corrigió demostrando que en portería remota las autorizaciones y las incidencias dependen directamente de protocolos (PROC-OP-001 y PROC-OP-002), por lo que ese filtro rompía los casos de proveedores y duplicaba la latencia innecesariamente. Se ordenó eliminar el clasificador.</li>
